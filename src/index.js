@@ -16,7 +16,6 @@ const onServerError = (err) => {
 	devLogger('Server on error', err);
 };
 const onServerListening = () => {
-	console.info(server.address().port);
 	devLogger(`Listnening..... update another => ${server.address().port}`);
 	prodLogger(`Server is running => ${server.address().port}`);
 };

@@ -1,6 +1,8 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import httpError from 'http-errors';
+import path from 'path';
+
 import { devLogger } from './services';
 import usersRouter from './routes/users';
 
@@ -10,6 +12,9 @@ const apiApp = express();
 apiApp.use(express.json());
 apiApp.use(express.urlencoded({ extended: false }));
 apiApp.use(cookieParser());
+
+// Static routes
+apiApp.use(express.static(path.join(__dirname, 'public')));
 
 // Adding routes
 apiApp.use('/users', usersRouter);
