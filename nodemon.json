@@ -1,0 +1,4 @@
+{
+	"exec": "yarn dev",
+	"watch": ["src/*"]
+}
