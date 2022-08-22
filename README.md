@@ -5,6 +5,6 @@
 
 - [x] Need server-side rendering application.
 - [x] Move it to react-pipe stream.
-- [ ] Explore concurrent render. 
+- [ ] Explore concurrent rendering.
 - [ ] Know more about node logging.
 - [ ] Multi-react page rendering. 

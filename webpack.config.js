@@ -3,10 +3,10 @@ const NodeExternals = require('webpack-node-externals');
 
 module.exports = () => [
 	{
-		entry: { browser: './src/client/main.js' },
+		entry: { browser: './src/client/index.js' },
 		mode: 'development',
 		output: {
-			filename: 'main.js',
+			filename: 'pageScript.js',
 			path: path.resolve(__dirname, 'dist/public'),
 		},
 		module: {
