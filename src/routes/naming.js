@@ -20,8 +20,9 @@ function App({ inputName }) {
 		</html>
 	);
 }
-export default App;
 
 App.propTypes = {
 	inputName: PropTypes.string,
 };
+
+export default App;

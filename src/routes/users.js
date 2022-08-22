@@ -4,11 +4,6 @@ import { renderToPipeableStream } from 'react-dom/server';
 import { devLogger } from '../services';
 import App from './naming';
 
-/**
- * renderToPipeableStream
- *
- */
-
 const userRouter = express.Router();
 
 userRouter.get('/', async (req, res) => {
