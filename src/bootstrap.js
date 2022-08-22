@@ -5,6 +5,7 @@ import path from 'path';
 
 import { devLogger } from './services/logger';
 import usersRouter from './routes/users';
+import concurentRouter from './routes/concurrent';
 
 const apiApp = express();
 
@@ -18,9 +19,10 @@ apiApp.use(express.static(path.join(__dirname, 'public')));
 
 // Adding routes
 apiApp.use('/users', usersRouter);
-apiApp.use('/', (req, res) => {
-	res.send({});
-});
+apiApp.use('/concurrent', concurentRouter);
+// apiApp.use('/', (req, res) => {
+// 	res.send({});
+// });
 
 // Error Handling
 apiApp.use((req, __, next) => {
