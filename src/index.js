@@ -1,8 +1,8 @@
 import dotEnv from 'dotenv';
 import http from 'http';
-import { devLogger, prodLogger } from './services';
+import { devLogger, prodLogger } from './services/logger';
 import apiApp from './bootstrap';
-import { normalizePort } from './utils';
+import normalizePort from './utils/normalizePort';
 
 dotEnv.config();
 

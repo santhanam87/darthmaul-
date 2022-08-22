@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToPipeableStream } from 'react-dom/server';
 import UserPage from '../client/pages/userPage';
-import { devLogger } from '../services';
+import { devLogger } from '../services/logger';
 
 const UserController = (req, res) => {
 	devLogger(req.url);
