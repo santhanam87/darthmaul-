@@ -7,7 +7,6 @@ const config = {
 		'!**/vendor/**',
 		'!*.config.js',
 	],
-	testEnvironment: 'jsdom',
 	transform: {
 		'^.+\\.(t|j)sx?$': ['@swc/jest'],
 	},
