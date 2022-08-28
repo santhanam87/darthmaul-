@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-const AppName = ({ inputName }) => <p>{inputName}</p>;
-
-AppName.propTypes = {
-	inputName: PropTypes.string,
+const AppName = () => {
+	const counter = useSelector((state) => state.counter.value);
+	return <p>Hello world...{counter}</p>;
 };
 
 export default AppName;
