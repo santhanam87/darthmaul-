@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AppName from '../components/name/name';
 
-function UserPage({ inputName }) {
+function UserPage() {
 	return (
 		<html lang="en">
 			<head>
@@ -14,15 +13,11 @@ function UserPage({ inputName }) {
 			</head>
 			<body>
 				<div id="root">
-					<AppName inputName={inputName} />
+					<AppName />
 				</div>
 			</body>
 		</html>
 	);
 }
-
-UserPage.propTypes = {
-	inputName: PropTypes.string,
-};
 
 export default UserPage;
