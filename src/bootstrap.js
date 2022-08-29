@@ -5,6 +5,7 @@ import path from 'path';
 
 import { devLogger } from './services/logger';
 import usersRouter from './routes/users';
+import getGQLclient from './middleware/gqlClient';
 
 const apiApp = express();
 
@@ -12,7 +13,10 @@ const apiApp = express();
 apiApp.use(express.json());
 apiApp.use(express.urlencoded({ extended: false }));
 apiApp.use(cookieParser());
-
+apiApp.use((req, _, next) => {
+	req.gqlClient = getGQLclient();
+	next();
+});
 // Static routes
 apiApp.use(express.static(path.join(__dirname, 'public')));
 

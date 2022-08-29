@@ -7,6 +7,7 @@ import createStore from '../store';
 
 const UserController = (req, res) => {
 	devLogger(req.url);
+	console.info(req.gqlClient);
 	const defaultValue = { counter: { value: 20 } };
 	const store = createStore(defaultValue);
 	const stream = renderToPipeableStream(
