@@ -1,3 +1,4 @@
+import { gql } from '@apollo/client';
 import React from 'react';
 import { renderToPipeableStream } from 'react-dom/server';
 import { Provider } from 'react-redux';
@@ -5,9 +6,22 @@ import UserPage from '../client/pages/userPage';
 import { devLogger } from '../services/logger';
 import createStore from '../store';
 
-const UserController = (req, res) => {
+const UserController = async (req, res) => {
 	devLogger(req.url);
-	console.info(req.gqlClient);
+	const queryResponse = await req.gqlClient.query({
+		query: gql`
+			{
+				business(id: "garaje-san-francisco") {
+					name
+					id
+					alias
+					rating
+					url
+				}
+			}
+		`,
+	});
+
 	const defaultValue = { counter: { value: 20 } };
 	const store = createStore(defaultValue);
 	const stream = renderToPipeableStream(
