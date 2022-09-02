@@ -1,9 +1,9 @@
 import { renderToPipeableStream } from 'react-dom/server';
 import React from 'react';
-import { configureStore } from '@reduxjs/toolkit';
 import BusinessItem from '../client/components/business';
 import HTMLPage from '../client/pages';
-import getYelpMiddleware from '../store/services/yelp';
+import yelpAPI from '../store/services/yelp';
+import createStore from '../store';
 /**
  * What I want to achieve ?
  * I want a SSR with graphql and RTK query
@@ -17,17 +17,13 @@ import getYelpMiddleware from '../store/services/yelp';
  *
  * Hydrate the react ssr
  *
- * Redux store integration
+ * Redux store integration.
+ *
+ * Store client side hydrating.
  */
 
 const RTLQueryController = async (req, res) => {
-    const yelpAPI = getYelpMiddleware(process.env.API_KEY, process.env.YELP_ENDPOINT);
-    const store = configureStore({
-        reducer: {
-            [yelpAPI.reducerPath]: yelpAPI.reducer,
-        },
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(yelpAPI.middleware),
-    });
+    const store = createStore();
     const { data } = await store.dispatch(yelpAPI.endpoints.getBusiness.initiate('garaje-san-francisco'));
     console.info(data);
     const name = 'Business Name';
