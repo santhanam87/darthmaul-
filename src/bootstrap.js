@@ -5,7 +5,7 @@ import path from 'path';
 
 import { devLogger } from './services/logger';
 import usersRouter from './routes/users';
-import getGQLclient from './middleware/gqlClient';
+import rtlQueryRouter from './routes/rtlQuery';
 
 const apiApp = express();
 
@@ -13,30 +13,27 @@ const apiApp = express();
 apiApp.use(express.json());
 apiApp.use(express.urlencoded({ extended: false }));
 apiApp.use(cookieParser());
-apiApp.use((req, _, next) => {
-	req.gqlClient = getGQLclient();
-	next();
-});
 // Static routes
 apiApp.use(express.static(path.join(__dirname, 'public')));
 
 // Adding routes
 apiApp.use('/users', usersRouter);
+apiApp.use('/rtlquery', rtlQueryRouter);
 apiApp.use('/', (req, res) => {
-	res.send({});
+    res.send({});
 });
 
 // Error Handling
 apiApp.use((req, __, next) => {
-	// 404 Not found error message.
-	devLogger(httpError(404));
-	next(httpError(404));
+    // 404 Not found error message.
+    devLogger(httpError(404));
+    next(httpError(404));
 });
 
 apiApp.use((err, _, res) => {
-	// Handling other errors.
-	res.status(err.status || 500);
-	res.json(err);
+    // Handling other errors.
+    res.status(err.status || 500);
+    res.json(err);
 });
 
 export default apiApp;

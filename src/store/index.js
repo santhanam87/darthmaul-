@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counter from './slices/counter.slice';
+import getYelpMiddleware from './services/yelp';
 
-export default (preloadedState, { gqlClient }) =>
-    configureStore({
+export default (preloadedState, apiKey, endPoint) => {
+    const yelpAPI = getYelpMiddleware(apiKey, endPoint);
+    return configureStore({
         reducer: {
-            counter,
+            [yelpAPI.reducerPath]: yelpAPI.reducer,
         },
         preloadedState,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware({ thunk: { extraArgument: { gqlClient } } }),
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(yelpAPI.middleware),
     });
+};

@@ -4,16 +4,15 @@ import { Provider } from 'react-redux';
 import UserPage from '../client/pages/userPage';
 import { devLogger } from '../services/logger';
 import createStore from '../store';
-import getBusiness from '../store/actions/getBusiness';
+import yelpApi from '../store/services/yelp';
 
 const UserController = async (req, res) => {
     devLogger(req.url);
     const { gqlClient } = req;
-
-    const defaultValue = { counter: { value: 20 } };
+    const defaultValue = {};
     const store = createStore(defaultValue, { gqlClient });
-    console.info('dispatching...');
-    store.dispatch(getBusiness());
+    console.info(process.env.API_KEY);
+    store.dispatch(yelpApi.endpoints.getBusiness.initiate());
     const stream = renderToPipeableStream(
         <Provider store={store}>
             <UserPage />
