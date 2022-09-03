@@ -18,10 +18,15 @@ const BusinessItem = () => {
     const loadOtherComp = () => {
         setLoadComponent(!isLoadComponent);
     };
+    const posts = data.posts.map(({ title, description, id }) => (
+        <p key={id}>
+            {title}-{description}
+        </p>
+    ));
     return (
         <>
             {isLoadComponent && <OtherComponent />}
-            {data.business.name}
+            {posts}
             <button type="button" onClick={loadOtherComp}>
                 Load
             </button>

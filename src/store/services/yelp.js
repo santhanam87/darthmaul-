@@ -1,8 +1,6 @@
-import { buildCreateApi, coreModule, reactHooksModule } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import { gql, ClientError } from 'graphql-request';
 import buildGQLClient from '../../services/gqlclient';
-
-const createApi = buildCreateApi(coreModule(), reactHooksModule({ unstable__sideEffectsInRender: true }));
 
 const graphqlBaseQuery = async ({ body }) => {
     try {
@@ -24,31 +22,29 @@ const yelpAPI = createApi({
         getBusiness: builder.query({
             query: (id) => ({
                 body: gql`
-                        query {
-                            business(id: "${id}") {
-                                name
-                                id
-                                alias
-                                rating
-                                url
-                            }
+                    query MyQuery {
+                        posts {
+                            author
+                            description
+                            id
+                            title
                         }
-                    `,
+                    }
+                `,
             }),
         }),
         getSearch: builder.query({
             query: ({ term, location }) => ({
                 body: gql`
-                        query {
-                            search(term: "${term}", location:"${location}") {
-                                total
-                                business {
-                                    name
-                                    url
-                                }
-                            }
+                    query MyQuery {
+                        posts {
+                            author
+                            description
+                            id
+                            title
                         }
-                    `,
+                    }
+                `,
             }),
         }),
     }),

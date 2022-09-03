@@ -3,16 +3,16 @@ import { GraphQLClient } from 'graphql-request';
 const buildGQLClient = () => {
     let endPoint;
     let apiKey;
-    if (process && process.env) {
+    if (typeof process !== 'undefined') {
         endPoint = process.env.YELP_ENDPOINT;
         apiKey = process.env.API_KEY;
-    } else if (window) {
-        endPoint = window.YELP_ENDPOINT;
+    } else if (window.END_POINT && window.API_KEY) {
+        endPoint = window.END_POINT;
         apiKey = window.API_KEY;
     }
     const graphQLClient = new GraphQLClient(endPoint, {
         headers: {
-            authorization: `Bearer ${apiKey}`,
+            'x-hasura-admin-secret': apiKey,
         },
     });
     return graphQLClient;

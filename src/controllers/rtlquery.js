@@ -25,9 +25,10 @@ import yelpAPI from '../store/services/yelp';
 
 const RTLQueryController = async (req, res) => {
     const store = createStore();
-    await store.dispatch(yelpAPI.endpoints.getBusiness.initiate('garaje-san-francisco'));
-    await store.dispatch(yelpAPI.endpoints.getSearch.initiate({ term: 'burrito', location: 'san francisco' }));
+    store.dispatch(yelpAPI.endpoints.getBusiness.initiate('garaje-san-francisco'));
+    store.dispatch(yelpAPI.endpoints.getSearch.initiate({ term: 'burrito', location: 'san francisco' }));
     // TODO remove the above hack.
+    await Promise.all(yelpAPI.util.getRunningOperationPromises());
     const stream = renderToPipeableStream(
         <HTMLPage pageTitle="RTLQuery">
             <Provider store={store}>
