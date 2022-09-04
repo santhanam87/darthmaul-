@@ -10,7 +10,7 @@ const OtherComponent = () => {
 };
 
 const BusinessItem = () => {
-    const { data, error, isLoading } = useGetBusinessQuery('garaje-san-francisco');
+    const { data, error, isLoading } = useGetBusinessQuery(2);
     const [isLoadComponent, setLoadComponent] = useState(false);
     if (isLoading || error) {
         return null;

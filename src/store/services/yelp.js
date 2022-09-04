@@ -1,6 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { gql, ClientError } from 'graphql-request';
 import buildGQLClient from '../../services/gqlclient';
+import getPostQuery from '../../query/getPost.graphql';
 
 const graphqlBaseQuery = async ({ body }) => {
     try {
@@ -21,16 +22,7 @@ const yelpAPI = createApi({
     endpoints: (builder) => ({
         getBusiness: builder.query({
             query: (id) => ({
-                body: gql`
-                    query MyQuery {
-                        posts {
-                            author
-                            description
-                            id
-                            title
-                        }
-                    }
-                `,
+                body: getPostQuery,
             }),
         }),
         getSearch: builder.query({
