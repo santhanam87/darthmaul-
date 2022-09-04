@@ -1,9 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
-const AppName = () => {
-	const counter = useSelector((state) => state.counter.value);
-	return <p>Hello world...{counter}</p>;
-};
+const AppName = () => <p>Hello world...</p>;
 
 export default AppName;

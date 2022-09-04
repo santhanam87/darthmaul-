@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counter from './slices/counter.slice';
+import yelpAPI from './services/yelp';
 
-export default (preloadedState) =>
-	configureStore({
-		reducer: {
-			counter,
-		},
-		preloadedState,
-	});
+export default (preloadedState = {}) =>
+    configureStore({
+        reducer: {
+            [yelpAPI.reducerPath]: yelpAPI.reducer,
+        },
+        preloadedState,
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(yelpAPI.middleware),
+    });
