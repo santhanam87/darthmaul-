@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import yelpAPI from './services/yelp';
+import listViewAPI from './services/listView';
 
 export default (preloadedState = {}) =>
     configureStore({
         reducer: {
-            [yelpAPI.reducerPath]: yelpAPI.reducer,
+            [listViewAPI.reducerPath]: listViewAPI.reducer,
         },
         preloadedState,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(yelpAPI.middleware),
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(listViewAPI.middleware),
     });

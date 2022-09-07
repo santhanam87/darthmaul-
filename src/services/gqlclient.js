@@ -1,4 +1,4 @@
-import { GraphQLClient } from 'graphql-request';
+import { ClientError, GraphQLClient } from 'graphql-request';
 
 const buildGQLClient = () => {
     let endPoint;
@@ -18,4 +18,17 @@ const buildGQLClient = () => {
     return graphQLClient;
 };
 
-export default buildGQLClient;
+const graphqlBaseQuery = async ({ body }) => {
+    try {
+        const graphQLClient = buildGQLClient();
+        const data = await graphQLClient.request(body);
+        return { data };
+    } catch (error) {
+        if (error instanceof ClientError) {
+            return { error: { status: error.response.status, data: error } };
+        }
+        return { error: { status: 500, data: error } };
+    }
+};
+
+export default graphqlBaseQuery;

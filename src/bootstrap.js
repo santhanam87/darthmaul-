@@ -4,8 +4,7 @@ import httpError from 'http-errors';
 import path from 'path';
 
 import { devLogger } from './services/logger';
-import usersRouter from './routes/users';
-import rtlQueryRouter from './routes/rtlQuery';
+import router from './routes';
 
 const apiApp = express();
 
@@ -17,11 +16,7 @@ apiApp.use(cookieParser());
 apiApp.use(express.static(path.join(__dirname, 'public')));
 
 // Adding routes
-apiApp.use('/users', usersRouter);
-apiApp.use('/rtlquery', rtlQueryRouter);
-apiApp.use('/', (req, res) => {
-    res.send({});
-});
+apiApp.use('/', router);
 
 // Error Handling
 apiApp.use((req, __, next) => {
