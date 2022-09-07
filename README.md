@@ -24,7 +24,7 @@ That’s the mystery I am yet to figure out. My anticipation is once I have an a
 
 Experience is my best teacher, Internet is flooded with so many good tutorials but what I find lacking is displaying honest effort in trying to do something from your thought process, whenever I try something the anticipation is to get the best out of it, but it is not possible without persistence and continuous learning. This “observe and engage” process will be documented as part of this repo. Which eventually become a corpus of my observation and approach.
 
-What are the tech, tools will be covered ?
+### What are the tech, tools will be covered ?
 
 For now, the main stack I have in mind is React, Node, Redux, RTL Query, GraphQL, Webkit, and Jest. All this stack will be served under Express server with Server Side Rendering. Another key thing I like to explore as part of this is Testing and Refactoring.
 
