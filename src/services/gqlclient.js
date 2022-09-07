@@ -18,10 +18,10 @@ const buildGQLClient = () => {
     return graphQLClient;
 };
 
-const graphqlBaseQuery = async ({ body }) => {
+const graphqlBaseQuery = async ({ body, variables }) => {
     try {
         const graphQLClient = buildGQLClient();
-        const data = await graphQLClient.request(body);
+        const data = await graphQLClient.request(body, variables);
         return { data };
     } catch (error) {
         if (error instanceof ClientError) {
