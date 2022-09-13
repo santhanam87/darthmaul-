@@ -1,12 +1,19 @@
 const path = require('path');
 const NodeExternals = require('webpack-node-externals');
+const glob = require('glob');
+
+const clientEntryPoints = glob.sync('./src/client/pages/**.js').reduce((obj, el) => {
+    // eslint-disable-next-line no-param-reassign
+    obj[path.parse(el).name] = el;
+    return obj;
+}, {});
 
 module.exports = () => [
     {
-        entry: { browser: './src/client/index.js' },
+        entry: clientEntryPoints,
         mode: 'development',
         output: {
-            filename: 'pageScript.js',
+            filename: '[name].js',
             path: path.resolve(__dirname, 'dist/public'),
         },
         module: {
