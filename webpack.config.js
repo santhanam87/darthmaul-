@@ -40,10 +40,6 @@ module.exports = () => [
         watchOptions: {
             ignored: /node_modules/,
         },
-        resolve: {
-            extensions: ['.wasm', '.mjs', '.js', '.json', '.dust'],
-            modules: ['node_modules'],
-        },
         module: {
             rules: [
                 {

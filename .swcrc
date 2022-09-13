@@ -1,9 +1,9 @@
 {
-	"jsc": {
-		"parser": {
-			"syntax": "ecmascript",
-			"jsx": true
-		}
-	},
-	"sourceMaps": true
+    "jsc": {
+        "parser": {
+            "syntax": "ecmascript",
+            "jsx": true
+        }
+    },
+    "sourceMaps": true
 }

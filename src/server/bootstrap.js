@@ -3,7 +3,7 @@ import cookieParser from 'cookie-parser';
 import httpError from 'http-errors';
 import path from 'path';
 
-import { devLogger } from './services/logger';
+import { devLogger } from '../app/services/logger';
 import router from './routes';
 
 const apiApp = express();
