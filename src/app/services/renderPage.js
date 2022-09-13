@@ -1,11 +1,14 @@
 import React from 'react';
 import { renderToPipeableStream } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import HTMLPage from '../../client/pages';
+import HTMLPage from '../../server/pages';
 
-const RenderPage = (requestComponent, store, res) => {
+const RenderPage = (requestComponent, store, req, res) => {
+    const {
+        routeInfo: { pageTitle, scriptName },
+    } = req;
     const stream = renderToPipeableStream(
-        <HTMLPage pageTitle="RTLQuery">
+        <HTMLPage pageTitle={pageTitle} scriptName={scriptName}>
             <Provider store={store}>{requestComponent}</Provider>
         </HTMLPage>,
         {

@@ -8,7 +8,7 @@ const ListViewController = async (req, res) => {
     const store = createStore();
     await Promise.all(listViewAPI.util.getRunningOperationPromises());
     const RequestComponent = <ListView />;
-    RenderPage(RequestComponent, store, res);
+    RenderPage(RequestComponent, store, req, res);
 };
 
 export default ListViewController;
