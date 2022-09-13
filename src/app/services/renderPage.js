@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToPipeableStream } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import HTMLPage from '../client/pages';
+import HTMLPage from '../../client/pages';
 
 const RenderPage = (requestComponent, store, res) => {
     const stream = renderToPipeableStream(

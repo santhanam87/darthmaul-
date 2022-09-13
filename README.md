@@ -1,12 +1,13 @@
 # Darth Maul
+
 ![Darth Maul](/assets/images/2074698.jpeg)
 
 This repository is not a library, tutorial, or any kind of tool which you can use for your need, this is like a chest that carries all my experience and thought processes. It will not deliver you a completed product, instead, this will deliver you information about all my efforts towards achieving something new from the scratch.
 
 ## Project dashboard
 
-- [Epic view](https://github.com/users/santhanam87/projects/3/views/4)
-- [Task view](https://github.com/users/santhanam87/projects/3/views/2)
+-   [Epic view](https://github.com/users/santhanam87/projects/3/views/4)
+-   [Task view](https://github.com/users/santhanam87/projects/3/views/2)
 
 ## FAQ
 
@@ -31,4 +32,3 @@ For now, the main stack I have in mind is React, Node, Redux, RTL Query, GraphQL
 ### Why the name Darthmaul ?
 
 When it comes to naming, I really like to pick it based on relevance, Maul is a star wars character who showed great perseverance in achieving the goal, no matter what he stayed till to meet his goal, this repo should represent something similar to that.
-

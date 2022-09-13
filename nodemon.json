@@ -1,4 +1,4 @@
 {
-	"exec": "yarn dev",
-	"watch": ["src/*"]
+  "exec": "yarn dev",
+  "watch": ["src/*"]
 }

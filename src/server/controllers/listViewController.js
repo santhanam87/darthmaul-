@@ -1,8 +1,8 @@
 import React from 'react';
-import ListView from '../client/components/listView';
-import RenderPage from '../services/renderPage';
-import createStore from '../store';
-import listViewAPI from '../store/services/listView';
+import RenderPage from '../../app/services/renderPage';
+import ListView from '../../client/components/listView';
+import listViewAPI from '../../app/store/services/listView';
+import createStore from '../../app/store';
 
 const ListViewController = async (req, res) => {
     const store = createStore();
