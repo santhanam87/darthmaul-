@@ -2,6 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 import graphqlBaseQuery from '../../services/gqlclient';
 import getPostsQuery from '../../query/getPosts.graphql';
 import insertPosts from '../../query/insertPosts.graphql';
+import getPostsById from '../../query/getPostById.graphql';
 
 const listViewAPI = createApi({
     reducerPath: 'listView',
@@ -18,8 +19,14 @@ const listViewAPI = createApi({
                 body: getPostsQuery,
             }),
         }),
+        getPostsById: builder.query({
+            query: (id) => ({
+                body: getPostsById,
+                variables: { id },
+            }),
+        }),
     }),
 });
 
-export const { useGetPostsQuery } = listViewAPI;
+export const { useGetPostsQuery, useGetPostsByIdQuery } = listViewAPI;
 export default listViewAPI;

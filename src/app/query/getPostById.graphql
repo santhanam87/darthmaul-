@@ -1,0 +1,9 @@
+query getPostById($id: Int) {
+    posts(where: { id: { _eq: $id } }) {
+        author
+        created
+        description
+        id
+        title
+    }
+}
