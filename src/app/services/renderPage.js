@@ -20,7 +20,7 @@ const RenderPage = (requestComponent, store, req, res) => {
             bootstrapScriptContent: `var INITIAL_STATE = ${JSON.stringify(
                 store.getState(),
             )}; var API_KEY=${JSON.stringify(process.env.API_KEY)}; var END_POINT=${JSON.stringify(
-                process.env.YELP_ENDPOINT,
+                process.env.HASURA_ENDPOINT,
             )};`,
         },
     );

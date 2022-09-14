@@ -18,8 +18,23 @@ const listViewAPI = createApi({
                 variables: { author, description, title },
             }),
         }),
+        getPosts: builder.query({
+            query: () => ({
+                body: gql`
+                    query GetPosts {
+                        posts {
+                            author
+                            created
+                            description
+                            id
+                            title
+                        }
+                    }
+                `,
+            }),
+        }),
     }),
 });
 
-export const { useGetBusinessQuery, useGetSearchQuery } = listViewAPI;
+export const { useGetPostsQuery } = listViewAPI;
 export default listViewAPI;
