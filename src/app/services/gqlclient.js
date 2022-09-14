@@ -4,7 +4,7 @@ const buildGQLClient = () => {
     let endPoint;
     let apiKey;
     if (typeof process !== 'undefined') {
-        endPoint = process.env.YELP_ENDPOINT;
+        endPoint = process.env.HASURA_ENDPOINT;
         apiKey = process.env.API_KEY;
     } else if (window.END_POINT && window.API_KEY) {
         endPoint = window.END_POINT;
@@ -18,10 +18,10 @@ const buildGQLClient = () => {
     return graphQLClient;
 };
 
-const graphqlBaseQuery = async ({ body }) => {
+const graphqlBaseQuery = async ({ body, variables = {} }) => {
     try {
         const graphQLClient = buildGQLClient();
-        const data = await graphQLClient.request(body);
+        const data = await graphQLClient.request(body, variables);
         return { data };
     } catch (error) {
         if (error instanceof ClientError) {
