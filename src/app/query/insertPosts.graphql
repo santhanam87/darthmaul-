@@ -1,0 +1,5 @@
+mutation InsertPost($author: String, $description: String, $title: String) {
+    insert_posts(objects: { author: $author, description: $description, title: $title }) {
+        affected_rows
+    }
+}

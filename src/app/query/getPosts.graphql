@@ -1,6 +1,7 @@
-query getPost {
+query GetPosts {
     posts {
         author
+        created
         description
         id
         title
