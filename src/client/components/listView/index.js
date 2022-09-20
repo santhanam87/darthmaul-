@@ -1,6 +1,8 @@
 import PorpTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useGetPostsQuery, useGetPostsByIdQuery } from '../../../app/store/services/listView';
+import './styles.scss';
+import Child from '../child';
 
 const ListItem = ({ id }) => {
     const { data, error, isLoading } = useGetPostsByIdQuery(id);
@@ -21,12 +23,14 @@ const ListView = () => {
     }
     const listData = data?.posts.map(({ id, title }) => (
         <li
+            className="listItem"
             onClick={() => {
                 setSelectedIndex(id);
             }}
             key={id}
         >
             {title}
+            <Child />
             {selectedIndex === id && <ListItem id={id} />}
         </li>
     ));

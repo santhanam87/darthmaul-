@@ -1,6 +1,7 @@
 const path = require('path');
 const NodeExternals = require('webpack-node-externals');
 const glob = require('glob');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const clientEntryPoints = glob.sync('./src/client/pages/**.js').reduce((obj, el) => {
     // eslint-disable-next-line no-param-reassign
@@ -12,6 +13,7 @@ module.exports = () => [
     {
         entry: clientEntryPoints,
         mode: 'development',
+        plugins: [new MiniCssExtractPlugin()],
         output: {
             filename: '[name].js',
             path: path.resolve(__dirname, 'dist/public'),
@@ -29,6 +31,17 @@ module.exports = () => [
                     use: {
                         loader: 'swc-loader',
                     },
+                },
+                {
+                    test: /\.s[ac]ss$/i,
+                    use: [
+                        // Extract it to seperate file
+                        MiniCssExtractPlugin.loader,
+                        // Translates CSS into CommonJS
+                        'css-loader',
+                        // Compiles Sass to CSS
+                        'sass-loader',
+                    ],
                 },
             ],
         },
@@ -66,6 +79,7 @@ module.exports = () => [
                         },
                     ],
                 },
+                { test: /\.(scss|css)$/, loader: 'ignore-loader' },
             ],
         },
     },
