@@ -1,4 +1,12 @@
 @use '../../common/reset.scss';
+@use '../../common/fonts.scss';
+
+// Font Variables
+$roboto: 'Roboto', serif;
+$fredericka: 'Fredericka the Great', sans-serif;
+
 .blogPages {
-    background: green;
+    font-family: $roboto;
+    font-size: 3em;
+    font-weight: 100;
 }
