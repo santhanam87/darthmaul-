@@ -5,7 +5,6 @@ const BlogPages = () => (
     <>
         <div className="topBand"></div>
         <header className="pageHeader">
-            <div className="headerImage"></div>
             <h1 className="authorName">SANTHANAM ELUMALAI</h1>
             <nav className="primaryNavigation">
                 <ul>

@@ -12,6 +12,8 @@ $white: #f5f5f5;
 $green: #49a078;
 $greenLight: #39a25e;
 $greenDark: #2f864d;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;
 
 body {
     background-color: $white;
@@ -31,18 +33,17 @@ body {
     height: 100%;
     background-color: $greenLight;
 }
-
 .pageHeader {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     .authorName {
         font-family: $fredericka;
         text-align: center;
         font-size: 3rem;
         color: $gray;
         padding: 2rem 0;
+        line-height: 4rem;
     }
 
     .primaryNavigation {
@@ -74,6 +75,7 @@ body {
     p {
         font-weight: 300;
         font-size: 1.2rem;
+        line-height: 2rem;
     }
 }
 .pageBody {
@@ -91,15 +93,15 @@ body {
 
 .pageArticles {
     .articleContainer {
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         .articleHeader {
             margin: 1rem 0;
             > a {
                 color: $greenDark;
-
                 font-weight: 900;
                 font-size: 1.5rem;
                 text-transform: uppercase;
+                line-height: 2.5rem;
             }
         }
         .articleContent {
@@ -143,22 +145,25 @@ body {
 }
 
 .categoryNavigation {
-    margin: 2rem 0;
-    ul li {
-        display: inline-block;
-        margin-right: 1rem;
-        a {
+    margin: 1rem 0;
+    ul {
+        text-align: center;
+        li {
             display: inline-block;
-            padding: 1rem 2rem;
-            border: 1px solid $green;
-            color: $greenDark;
-            text-decoration: none;
-            border-radius: 2rem;
-            font-size: 1.2rem;
-            font-weight: 500;
-            &:hover {
-                background-color: $greenDark;
-                color: $white;
+            margin: 0 1rem 1rem 0;
+            a {
+                display: inline-block;
+                padding: 1rem 2rem;
+                border: 1px solid $green;
+                color: $greenDark;
+                text-decoration: none;
+                border-radius: 2rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                &:hover {
+                    background-color: $greenDark;
+                    color: $white;
+                }
             }
         }
     }
@@ -179,12 +184,14 @@ body {
         color: $white;
         text-transform: uppercase;
         font-weight: 900;
+        line-height: 2.5rem;
     }
     .footerAuthorDescription {
         margin: 0.2rem 0;
         font-weight: 100;
         color: $gray;
         font-size: 1.5rem;
+        line-height: 2rem;
     }
     .footerNavigation {
         padding: 2rem 0;
@@ -200,5 +207,33 @@ body {
                 }
             }
         }
+    }
+}
+
+@media (min-width: $breakpoint-tablet) {
+    .pageContainer {
+        padding: 0;
+        max-width: $breakpoint-desktop;
+        margin: auto;
+    }
+    .pageBody {
+        display: flex;
+    }
+    .pageArticles {
+        max-width: 65%;
+    }
+    .pageCategories {
+        margin-left: 2rem;
+        padding-left: 2rem;
+        border-left: 1px solid $grayLight;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+    .sectionTitle {
+        text-align: left;
+    }
+    .categoryNavigation ul {
+        text-align: left;
     }
 }
