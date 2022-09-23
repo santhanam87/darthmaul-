@@ -33,11 +33,33 @@ body {
     height: 100%;
     background-color: $greenLight;
 }
+.inlineList {
+    ul li {
+        display: inline-block;
+        margin-right: 0.5rem;
+        ::after {
+            content: ',';
+        }
+        a {
+            text-decoration: none;
+            color: $gray;
+            &:hover {
+                text-decoration: underline;
+                color: $greenDark;
+            }
+        }
+    }
+    ul li:last-child {
+        ::after {
+            content: '';
+        }
+    }
+}
 .pageHeader {
     display: flex;
     flex-direction: column;
     align-items: center;
-    .authorName {
+    .siteTitle {
         font-family: $fredericka;
         text-align: center;
         font-size: 3rem;
@@ -94,6 +116,29 @@ body {
 .pageArticles {
     .articleContainer {
         margin-bottom: 3rem;
+        .articleMetaInfo {
+            display: flex;
+            flex-direction: column;
+            .authorInfo {
+                display: flex;
+                flex-grow: 1;
+                flex-direction: column;
+                margin-bottom: 2rem;
+                .authorName {
+                    a {
+                        font-size: 1.5rem;
+                        font-weight: 900;
+                        text-transform: uppercase;
+                        color: $gray;
+                    }
+                    margin-bottom: 0.7rem;
+                }
+            }
+            .tagList {
+                @extend .inlineList;
+                margin-bottom: 1rem;
+            }
+        }
         .articleHeader {
             margin: 1rem 0;
             > a {
@@ -105,11 +150,21 @@ body {
             }
         }
         .articleContent {
-            font-size: 1.5rem;
-            color: $gray;
-            line-height: 2.5rem;
-            font-weight: 100;
-            margin: 2rem 0;
+            h1,
+            h2,
+            h3 {
+                font-size: 1.5rem;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+            }
+            p {
+                font-size: 1.5rem;
+                color: $gray;
+                line-height: 2.5rem;
+                font-weight: 100;
+                margin: 2rem 0;
+            }
         }
         .articleFooter {
             display: flex;
@@ -119,26 +174,7 @@ body {
                 margin-right: 0.5rem;
             }
             .tagNavigation {
-                ul li {
-                    display: inline-block;
-                    margin-right: 0.5rem;
-                    ::after {
-                        content: ',';
-                    }
-                    a {
-                        text-decoration: none;
-                        color: $gray;
-                        &:hover {
-                            text-decoration: underline;
-                            color: $greenDark;
-                        }
-                    }
-                }
-                ul li:last-child {
-                    ::after {
-                        content: '';
-                    }
-                }
+                @extend .inlineList;
             }
         }
     }
@@ -235,5 +271,12 @@ body {
     }
     .categoryNavigation ul {
         text-align: left;
+    }
+    .pageArticles {
+        .articleContainer {
+            .articleMetaInfo {
+                flex-direction: row;
+            }
+        }
     }
 }
