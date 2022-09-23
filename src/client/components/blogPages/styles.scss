@@ -117,6 +117,7 @@ body {
     .articleContainer {
         margin-bottom: 3rem;
         .articleMetaInfo {
+            margin-top: 2rem;
             display: flex;
             flex-direction: column;
             .authorInfo {
@@ -156,7 +157,7 @@ body {
                 font-size: 1.5rem;
                 font-weight: 900;
                 text-transform: uppercase;
-                letter-spacing: 0.1rem;
+                color: $gray;
             }
             p {
                 font-size: 1.5rem;
