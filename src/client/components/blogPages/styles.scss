@@ -59,15 +59,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 2rem;
     .siteTitle {
         font-family: $fredericka;
         text-align: center;
         font-size: 3rem;
         color: $gray;
-        padding: 2rem 0;
+        padding: 2rem 0 1rem 0;
         line-height: 4rem;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
     }
-
     .primaryNavigation {
         li {
             display: inline-block;
@@ -87,15 +91,15 @@ body {
         }
     }
 }
-.quotedText {
+blockquote {
     display: block;
     margin: 2rem 0;
     background-color: $grayLight;
-    padding: 3rem;
+    padding: 1rem 1.5rem;
     color: $gray;
     border-left: 0.5rem $greenDark solid;
     p {
-        font-weight: 300;
+        font-weight: 500;
         font-size: 1.2rem;
         line-height: 2rem;
     }
@@ -103,7 +107,6 @@ body {
 .pageBody {
     margin: 2rem 0;
 }
-
 .sectionTitle {
     font-family: $fredericka;
     text-align: center;
@@ -112,10 +115,9 @@ body {
     padding: 2rem 0;
     text-transform: uppercase;
 }
-
 .pageArticles {
     .articleContainer {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         .articleMetaInfo {
             margin-top: 2rem;
             display: flex;
@@ -127,8 +129,8 @@ body {
                 margin-bottom: 2rem;
                 .authorName {
                     a {
-                        font-size: 1.5rem;
-                        font-weight: 900;
+                        font-size: 1.2rem;
+                        font-weight: 500;
                         text-transform: uppercase;
                         color: $gray;
                     }
@@ -137,34 +139,69 @@ body {
             }
             .tagList {
                 @extend .inlineList;
-                margin-bottom: 1rem;
             }
         }
         .articleHeader {
-            margin: 1rem 0;
-            > a {
-                color: $greenDark;
-                font-weight: 900;
-                font-size: 1.5rem;
-                text-transform: uppercase;
-                line-height: 2.5rem;
+            color: $greenDark;
+            font-weight: 500;
+            font-size: 1.7rem;
+            text-transform: uppercase;
+            line-height: 3rem;
+            a {
+                color: inherit;
             }
         }
         .articleContent {
             h1,
             h2,
             h3 {
-                font-size: 1.5rem;
-                font-weight: 900;
+                font-size: 1.4rem;
+                font-weight: 500;
                 text-transform: uppercase;
                 color: $gray;
+                margin: 1.5rem 0;
+                text-decoration: none;
+                a {
+                    color: inherit;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
             p {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
                 color: $gray;
                 line-height: 2.5rem;
                 font-weight: 100;
-                margin: 2rem 0;
+                margin: 1.5rem 0;
+                code {
+                    display: inline-block;
+                    padding: 0.2rem 1rem;
+                    background-color: $gray;
+                    color: $white;
+                    border-radius: 0.2rem;
+                    font-weight: 500;
+                    margin: 0.3rem 0;
+                }
+            }
+            ul,
+            ol {
+                padding-left: 1rem;
+                border-top: 1px solid transparent;
+                li {
+                    &::before {
+                        content: '►';
+                        display: inline-block;
+                        margin-right: 0.7rem;
+                        font-size: 0.7rem;
+                        color: $greenDark;
+                    }
+                    font-size: 1.3rem;
+                    font-weight: 100;
+                    margin-bottom: 1rem;
+                    display: flex;
+                    align-items: center;
+                }
             }
         }
         .articleFooter {
@@ -179,8 +216,33 @@ body {
             }
         }
     }
+    .postPagination {
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 0 1rem;
+            .prev,
+            .next {
+                display: none;
+            }
+            font-size: 1.3rem;
+            a,
+            span {
+                display: inline-block;
+                padding: 1.2rem 1.5rem;
+                background-color: $grayLight;
+                color: $gray;
+                border-radius: 50%;
+                text-decoration: none;
+            }
+            a:hover,
+            .current {
+                background-color: $greenDark;
+                color: $white;
+            }
+        }
+    }
 }
-
 .categoryNavigation {
     margin: 1rem 0;
     ul {
@@ -205,7 +267,6 @@ body {
         }
     }
 }
-
 .pageFooter {
     background-color: $greenDark;
     padding: 2rem 3rem;
@@ -246,6 +307,30 @@ body {
         }
     }
 }
+.searchSection {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $gray;
+    svg {
+        color: $grayLight;
+    }
+    .formSection {
+        display: flex;
+        align-items: center;
+        input[type='text'] {
+            width: 100%;
+            padding: 1rem 0;
+            color: $gray;
+            background-color: $white;
+            border: none;
+            font-size: 1.5rem;
+            &:focus {
+                border: none;
+                outline-width: 0;
+            }
+        }
+    }
+}
 
 @media (min-width: $breakpoint-tablet) {
     .pageContainer {
@@ -257,7 +342,19 @@ body {
         display: flex;
     }
     .pageArticles {
-        max-width: 65%;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 350px;
+        .articleContainer {
+            .articleMetaInfo {
+                flex-direction: row;
+                .authorInfo {
+                    margin-bottom: 0;
+                }
+            }
+        }
     }
     .pageCategories {
         margin-left: 2rem;
@@ -266,18 +363,16 @@ body {
         height: 100vh;
         position: sticky;
         top: 0;
+        flex-shrink: 1;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 0;
+        flex-basis: 350px;
     }
     .sectionTitle {
         text-align: left;
     }
     .categoryNavigation ul {
         text-align: left;
-    }
-    .pageArticles {
-        .articleContainer {
-            .articleMetaInfo {
-                flex-direction: row;
-            }
-        }
     }
 }
