@@ -30,7 +30,6 @@ const ListView = () => {
             key={id}
         >
             {title}
-            <Child />
             {selectedIndex === id && <ListItem id={id} />}
         </li>
     ));
