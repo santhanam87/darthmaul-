@@ -2,14 +2,13 @@ import PorpTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useGetPostsQuery, useGetPostsByIdQuery } from '../../../app/store/services/listView';
 import './styles.scss';
-import Child from '../child';
 
 const ListItem = ({ id }) => {
     const { data, error, isLoading } = useGetPostsByIdQuery(id);
     if (isLoading || error || !data) {
         return 'Loading';
     }
-    return <span> - {data?.posts[0].author}</span>;
+    return <strong className="listChild"> - {data?.posts[0].author}</strong>;
 };
 ListItem.propTypes = {
     id: PorpTypes.number,
