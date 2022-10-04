@@ -1,3 +1,9 @@
+@use '../../common/styles/index.scss';
+
 .listItem {
-    color: red;
+    font-family: 'Roboto';
+    font-weight: 100;
+}
+.listChild {
+    font-weight: 500;
 }
