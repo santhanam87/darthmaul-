@@ -1,1 +1,8 @@
-@use '../../common/styles/index.scss';
+@use '../../common/styles/index.scss' as util;
+
+.error-alert {
+    background-color: util.$error-bg;
+    color: util.$error-text;
+    padding: 1rem 2rem;
+    margin: 2rem;
+}
