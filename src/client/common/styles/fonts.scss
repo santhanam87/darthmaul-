@@ -1,1 +1,62 @@
-@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&display=swap';
+.weight-light {
+    font-weight: 100;
+}
+.weight-normal {
+    font-weight: 300;
+}
+.weight-bold {
+    font-weight: 500;
+}
+.weight-black {
+    font-weight: 900;
+}
+// font size
+.font-xxxl {
+    font-size: 6rem;
+}
+.font-xxl {
+    font-size: 3.75rem;
+}
+.font-xl {
+    font-size: 3rem;
+}
+.font-xl {
+    font-size: 2.12rem;
+}
+.font-l {
+    font-size: 1.5rem;
+}
+.font-m {
+    font-size: 1rem;
+}
+.font-s {
+    font-size: 0.75rem;
+}
+body {
+    font-family: 'Roboto';
+}
+h1 {
+    @extend .font-xxxl;
+    @extend .weight-light;
+    letter-spacing: -1.5px;
+}
+h2 {
+    @extend .font-xxl;
+    @extend .weight-light;
+    letter-spacing: -0.5px;
+}
+h3 {
+    @extend .font-xl;
+    @extend .weight-bold;
+    letter-spacing: 0;
+}
+h4 {
+    @extend .font-l;
+    @extend .weight-black;
+    letter-spacing: 0.1rem;
+}
+p {
+    @extend .font-m;
+    @extend .weight-normal;
+    letter-spacing: 0.5;
+}
