@@ -3,20 +3,24 @@
 .alert-error {
     background-color: $error-bg;
     color: $error-text;
-    padding: 1rem 2rem;
-    margin: 2rem;
+    @extend .p-y-md;
+    @extend .p-x-xl;
+    @extend .m-xl;
 }
 
 .alert-success {
     background-color: $success-bg;
     color: $success-text;
     padding: 1rem 2rem;
-    margin: 2rem;
+    @extend .p-y-md;
+    @extend .p-x-xl;
+    @extend .m-xl;
 }
 
 .alert-info {
     background-color: $info-bg;
     color: $info-text;
-    padding: 1rem 2rem;
-    margin: 2rem;
+    @extend .p-y-md;
+    @extend .p-x-xl;
+    @extend .m-xl;
 }
