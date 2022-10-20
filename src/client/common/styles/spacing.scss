@@ -1,0 +1,30 @@
+@use 'sass:math';
+@use 'sass:map';
+$spacing-unit: 0.25rem;
+$directions: 't', 'r', 'b', 'l', 'x', 'y';
+$sizes: (
+    'xs': 1,
+    'sm': 2,
+    'md': 3,
+    'lg': 4,
+    'xl': 5,
+    'xxl': 6,
+);
+$types: (
+    'p': 'padding',
+    'm': 'margin',
+);
+
+@mixin setSpacing($name, $type, $unit: 1) {
+    @each $direction in $directions {
+        @each $size, $unit in $sizes {
+            .#{$name}-#{direciton}-#{$size} {
+                #{map.get($types, $type)}: $spacing-unit * $unit;
+            }
+        }
+    }
+}
+
+/* Padding */
+
+/* Margin */
