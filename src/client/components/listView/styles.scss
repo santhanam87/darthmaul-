@@ -1,1 +1,22 @@
-@use '../../common/styles/index.scss';
+@use '../../common/styles/index.scss' as *;
+
+.alert-error {
+    background-color: $error-bg;
+    color: $error-text;
+    padding: 1rem 2rem;
+    margin: 2rem;
+}
+
+.alert-success {
+    background-color: $success-bg;
+    color: $success-text;
+    padding: 1rem 2rem;
+    margin: 2rem;
+}
+
+.alert-info {
+    background-color: $info-bg;
+    color: $info-text;
+    padding: 1rem 2rem;
+    margin: 2rem;
+}

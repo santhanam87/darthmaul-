@@ -39,10 +39,10 @@ const ListView = () => {
             <h3>Lorem ipsum dolor sit amet.</h3>
             <h4>Lorem ipsum dolor sit amet.</h4>
             <br />
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus perferendis hic mollitia dolorem
-                veritatis error sequi omnis, quasi deleniti fugit.
-            </p>
+            <p className="alert-success">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="alert-info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="alert-error">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
             <ul>{listData}</ul>
         </>
     );
